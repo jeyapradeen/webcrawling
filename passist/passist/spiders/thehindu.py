@@ -19,8 +19,9 @@ class ThehinduSpider(scrapy.Spider):
     	item['site_url'] = response.url
     	item['updated_date'] = response.xpath('//div[contains(@class,"artPubUpdate")]/text()').extract()[0]
     	item['title_text'] = response.xpath('//h1[contains(@class,"detail-title")]/text()').extract()[0]
-    	item['image_url'] = response.xpath('//div[@id="pic"]/img/@src').extract()[0]
-    	item['content_text']=response.xpath('//p/text()').extract_first()
+    	item['image_url'] = response.xpath('//div[@id="hcenter"]/img/@src').extract()[0]
+
+    	item['content_text']=response.xpath('//p/text()').extract()[0]
         #print response.xpath('//p/text()').extract_first()
         # for sel in response.xpath('//p'):
         #     print sel.xpath('text()').extract().first()
